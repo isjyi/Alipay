@@ -1,5 +1,5 @@
 <?php
-namespace Latrell\Alipay\Web;
+namespace Zhangbiao1993\Alipay\Wap;
 
 class SdkPayment
 {
@@ -10,9 +10,7 @@ class SdkPayment
 
     private $__http_verify_url = 'http://notify.alipay.com/trade/notify_query.do?';
 
-    private $service = 'create_direct_pay_by_user';
-
-    private $refunds_service = 'refund_fastpay_by_platform_pwd';
+    private $service = 'alipay.wap.create.direct.pay.by.user';
 
     private $partner;
 
@@ -40,25 +38,15 @@ class SdkPayment
 
     private $show_url;
 
-    private $anti_phishing_key;
-
     private $exter_invoke_ip;
+
+    private $app_pay = 'Y';
 
     private $key;
 
     private $transport;
 
     private $cacert;
-
-    private $qr_pay_mode;
-
-    private $refund_date;
-    
-    private $batch_no;
-
-    private $batch_num;
-
-    private $detail_data;
 
     public function __construct()
     {
@@ -76,43 +64,23 @@ class SdkPayment
             'payment_type' => $this->payment_type,
             'notify_url' => $this->notify_url,
             'return_url' => $this->return_url,
-            'seller_email' => $this->seller_id,
+            'seller_id' => $this->seller_id,
             'out_trade_no' => $this->out_trade_no,
             'subject' => $this->subject,
             'total_fee' => $this->total_fee,
             'body' => $this->body,
             'it_b_pay' => $this->it_b_pay,
             'show_url' => $this->show_url,
-            'anti_phishing_key' => $this->anti_phishing_key,
             'exter_invoke_ip' => $this->exter_invoke_ip,
-            '_input_charset' => strtolower($this->_input_charset),
-            'qr_pay_mode' => $this->qr_pay_mode
-        );
-
-        $para = $this->buildRequestPara($parameter);
-        return $this->__gateway_new . $this->createLinkstringUrlencode($para);
-    }
-
-    /**
-    * 退款
-    */
-    public function Refunds()
-    {
-        $parameter = array(
-            'service' => $this->refunds_service,
-            'partner' => $this->partner,
-            'notify_url' => $this->notify_url,
-            'return_url' => $this->return_url,
-            'seller_email' => $this->seller_id,
-            'refund_date' => $this->refund_date,
-            'batch_no' => $this->batch_no,
-            'batch_num' => $this->batch_num,
-            'detail_data' => $this->detail_data,
+            'app_pay' => $this->app_pay,
             '_input_charset' => strtolower($this->_input_charset)
         );
+
         $para = $this->buildRequestPara($parameter);
+
         return $this->__gateway_new . $this->createLinkstringUrlencode($para);
     }
+
     /**
      * 验证消息是否是支付宝发出的合法消息
      */
@@ -123,7 +91,7 @@ class SdkPayment
             return false;
         }
 
-        $data = $_POST ?  : $_GET;
+        $data = $_POST ?: $_GET;
 
         // 生成签名结果
         $is_sign = $this->getSignVeryfy($data, $data['sign']);
@@ -216,39 +184,15 @@ class SdkPayment
         return $this;
     }
 
-    public function setrefund_date()
-    {
-        $this->refund_date = date("Y-m-d H:i:s");
-        return $this;
-    }
-
-    public function setbatch_no($batch_no)
-    {
-        $this->batch_no = $batch_no;
-        return $this;
-    }
-
-    public function setbatch_num($batch_num)
-    {
-        $this->batch_num = $batch_num;
-        return $this;
-    }
-
-    public function setdetail_data($detail_data)
-    {
-        $this->detail_data = $detail_data;
-        return $this;
-    }
-
     public function setExterInvokeIp($exter_invoke_ip)
     {
         $this->exter_invoke_ip = $exter_invoke_ip;
         return $this;
     }
 
-    public function setQrPayMode($qr_pay_mode)
+    public function setAppPay($app_pay)
     {
-        $this->qr_pay_mode = $qr_pay_mode;
+        $this->app_pay = $app_pay;
         return $this;
     }
 

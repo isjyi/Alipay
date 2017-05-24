@@ -1,6 +1,7 @@
 {
     "name": "zhangbiao1993/alipay",
     "description": "支付宝SDK在Laravel5封装包。",
+    "homepage": "https://github.com/zhangbiao1993/Alipay",
     "keywords": [
         "L5",
         "Laravel 5",
@@ -23,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Zhangbiao1993\\Alipay\\": "src/zhangbiao1993/Alipay/"
+            "Zhangbiao1993\\Alipay\\": "src/Zhangbiao1993/Alipay/"
         }
     },
     "minimum-stability": "stable"

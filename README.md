@@ -8,7 +8,7 @@ Alipay
 ## 安装
 
 ```
-composer require latrell/alipay dev-master
+composer require Zhangbiao1993/alipay dev-master
 ```
 
 更新你的依赖包 ```composer update``` 或者全新安装 ```composer install```。
@@ -25,7 +25,7 @@ composer require latrell/alipay dev-master
 ```php
     'providers' => [
         // ...
-        'Latrell\Alipay\AlipayServiceProvider',
+        'Zhangbiao1993\Alipay\AlipayServiceProvider',
     ]
 ```
 
@@ -36,7 +36,7 @@ composer require latrell/alipay dev-master
 
 ```php
 //Register Service Providers
-$app->register(Latrell\Alipay\AlipayServiceProvider::class);
+$app->register(Zhangbiao1993\Alipay\AlipayServiceProvider::class);
 ```
 
 由于Lumen的`artisan`命令不支持`vendor:publish`,需要自己手动将`src/config`下的配置文件拷贝到项目的`config`目录下,
