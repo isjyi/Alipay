@@ -28,19 +28,19 @@ class AlipayServiceProvider extends ServiceProvider
         $source_web = realpath(__DIR__ . '/../../config/web.php');
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([
-                $source_config => config_path('latrell-alipay.php'),
-                $source_mobile => config_path('latrell-alipay-mobile.php'),
-                $source_web => config_path('latrell-alipay-web.php'),
+                $source_config => config_path('zhangbiao-alipay.php'),
+                $source_mobile => config_path('zhangbiao-alipay-mobile.php'),
+                $source_web => config_path('zhangbiao-alipay-web.php'),
             ]);
         } elseif ($this->app instanceof LumenApplication) {
-            $this->app->configure('latrell-alipay');
-            $this->app->configure('latrell-alipay-mobile');
-            $this->app->configure('latrell-alipay-web');
+            $this->app->configure('zhangbiao-alipay');
+            $this->app->configure('zhangbiao-alipay-mobile');
+            $this->app->configure('zhangbiao-alipay-web');
         }
         
-        $this->mergeConfigFrom($source_config, 'latrell-alipay');
-        $this->mergeConfigFrom($source_mobile, 'latrell-alipay-mobile');
-        $this->mergeConfigFrom($source_web, 'latrell-alipay-web');
+        $this->mergeConfigFrom($source_config, 'zhangbiao-alipay');
+        $this->mergeConfigFrom($source_mobile, 'zhangbiao-alipay-mobile');
+        $this->mergeConfigFrom($source_web, 'zhangbiao-alipay-web');
     }
 
     /**
