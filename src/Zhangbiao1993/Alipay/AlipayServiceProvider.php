@@ -54,12 +54,12 @@ class AlipayServiceProvider extends ServiceProvider
         $this->app->bind('alipay.mobile', function ($app) {
             $alipay = new Mobile\SdkPayment();
 
-            $alipay->setPartner($app->config->get('latrell-alipay.partner_id'))
-                ->setSellerId($app->config->get('latrell-alipay.seller_id'))
-                ->setSignType($app->config->get('latrell-alipay-mobile.sign_type'))
-                ->setPrivateKeyPath($app->config->get('latrell-alipay-mobile.private_key_path'))
-                ->setPublicKeyPath($app->config->get('latrell-alipay-mobile.public_key_path'))
-                ->setNotifyUrl($app->config->get('latrell-alipay-mobile.notify_url'));
+            $alipay->setPartner($app->config->get('zhangbiao-alipay.partner_id'))
+                ->setSellerId($app->config->get('zhangbiao-alipay.seller_id'))
+                ->setSignType($app->config->get('zhangbiao-alipay-mobile.sign_type'))
+                ->setPrivateKeyPath($app->config->get('zhangbiao-alipay-mobile.private_key_path'))
+                ->setPublicKeyPath($app->config->get('zhangbiao-alipay-mobile.public_key_path'))
+                ->setNotifyUrl($app->config->get('zhangbiao-alipay-mobile.notify_url'));
 
             return $alipay;
         });
@@ -67,12 +67,12 @@ class AlipayServiceProvider extends ServiceProvider
         $this->app->bind('alipay.web', function ($app) {
             $alipay = new Web\SdkPayment();
 
-            $alipay->setPartner($app->config->get('latrell-alipay.partner_id'))
-                ->setSellerId($app->config->get('latrell-alipay.seller_id'))
-                ->setKey($app->config->get('latrell-alipay-web.key'))
-                ->setSignType($app->config->get('latrell-alipay-web.sign_type'))
-                ->setNotifyUrl($app->config->get('latrell-alipay-web.notify_url'))
-                ->setReturnUrl($app->config->get('latrell-alipay-web.return_url'))
+            $alipay->setPartner($app->config->get('zhangbiao-alipay.partner_id'))
+                ->setSellerId($app->config->get('zhangbiao-alipay.seller_id'))
+                ->setKey($app->config->get('zhangbiao-alipay-web.key'))
+                ->setSignType($app->config->get('zhangbiao-alipay-web.sign_type'))
+                ->setNotifyUrl($app->config->get('zhangbiao-alipay-web.notify_url'))
+                ->setReturnUrl($app->config->get('zhangbiao-alipay-web.return_url'))
                 ->setExterInvokeIp($app->request->getClientIp());
 
             return $alipay;
@@ -81,12 +81,12 @@ class AlipayServiceProvider extends ServiceProvider
         $this->app->bind('alipay.wap', function ($app) {
             $alipay = new Wap\SdkPayment();
 
-            $alipay->setPartner($app->config->get('latrell-alipay.partner_id'))
-            ->setSellerId($app->config->get('latrell-alipay.seller_id'))
-            ->setKey($app->config->get('latrell-alipay-web.key'))
-            ->setSignType($app->config->get('latrell-alipay-web.sign_type'))
-            ->setNotifyUrl($app->config->get('latrell-alipay-web.notify_url'))
-            ->setReturnUrl($app->config->get('latrell-alipay-web.return_url'))
+            $alipay->setPartner($app->config->get('zhangbiao-alipay.partner_id'))
+            ->setSellerId($app->config->get('zhangbiao-alipay.seller_id'))
+            ->setKey($app->config->get('zhangbiao-alipay-web.key'))
+            ->setSignType($app->config->get('zhangbiao-alipay-web.sign_type'))
+            ->setNotifyUrl($app->config->get('zhangbiao-alipay-web.notify_url'))
+            ->setReturnUrl($app->config->get('zhangbiao-alipay-web.return_url'))
             ->setExterInvokeIp($app->request->getClientIp());
 
             return $alipay;
